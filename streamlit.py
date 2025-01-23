@@ -12,9 +12,12 @@ from io import BytesIO
 import os
 import shutil
 import atexit
-a=1
-# the internet must not be connected to psg if so it shows error in the connection with the mongo server
-def sample(embedding_model,index,collection,chat_model):
+# the internet must not be connected to psg if so it shows error in the connection with the mongo server'
+if 'load_model' not in st.session_state:
+    st.session_state.load_model = None
+def sample():
+    if st.session_state.load_model == None:
+        embedding_model,index,collection,chat_model=elements()
     st.markdown(
         """
             <style>
@@ -48,7 +51,7 @@ def sample(embedding_model,index,collection,chat_model):
         if os.path.exists(save_dir):
             shutil.rmtree(save_dir)
     atexit.register(cleanup)
-
+    
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
     if uploaded_file is not None:
         delete_previous_images(save_dir)
@@ -79,10 +82,7 @@ def sample(embedding_model,index,collection,chat_model):
             for image in images:
                 image_data = base64.b64decode(image)
                 imagee = Image.open(BytesIO(image_data))
-                st.image(imagee, caption='Image', use_column_width=True)
+                st.image(imagee, caption='Image', use_container_width=True)
 
 if __name__=="__main__":
-    if a==1:
-        embedding_model,index,collection,chat_model=elements()
-        a+=1
-    sample(embedding_model,index,collection,chat_model)
+    sample()
