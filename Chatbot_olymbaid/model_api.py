@@ -10,7 +10,7 @@ def load_embedding_model():
     return embedding_model
 def load_chat_model():
     chat_model=ChatGoogleGenerativeAI(
-    model="gemini-1.5-pro",temperature=0,max_output_tokens=2000,
+    model="gemini-1.5-flash",temperature=0,max_output_tokens=2000,
     timeout=2000)
     print("loaded chat model")
     return chat_model
