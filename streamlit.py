@@ -42,6 +42,7 @@ def sample():
     SAMPLE QUESTION: \n
     1. what is respiration with image .
     2. explain conducting zone.
+    3. explain mitochondria in table along with description
     """ 
     with st.sidebar:
         st.title('🦜🔗 Welcome to the Medical ChatBot')
