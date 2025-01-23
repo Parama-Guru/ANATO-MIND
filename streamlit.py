@@ -32,13 +32,17 @@ def sample():
         unsafe_allow_html=True,
     )
     st.markdown("""
-    <h3 style='text-align: left; color: black; padding-top: 35px; border-bottom: 3px solid red;'>
+    <h3 style='text-align: left; color: white; padding-top: 35px; border-bottom: 3px solid red;'>
         Medical Anatomy Chatbot 🧘‍♂️🔬
     </h3>""", unsafe_allow_html=True)
     side_bar_message = """
     Hi! 👋 I'm here to help you with your medical anatomy.
-    Feel free to ask me anything about medical anatomy!
-    """
+    Feel free to ask me anything about medical anatomy! \n
+    this chatbot is trained on a particular anatomy book. \n  
+    SAMPLE QUESTION: \n
+    1. what is respiration with image .
+    2. explain conducting zone.
+    """ 
     with st.sidebar:
         st.title('🦜🔗 Welcome to the Medical ChatBot')
         st.markdown(side_bar_message)
