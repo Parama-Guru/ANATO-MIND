@@ -1,6 +1,6 @@
 pathlib
 pymongo
-pinecone-client
+pinecone
 python-dotenv
 langchain
 langchain_core
